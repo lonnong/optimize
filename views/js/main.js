@@ -407,13 +407,13 @@ var resizePizzas = function(size) {
   function changeSliderLabel(size) {
     switch(size) {
       case "1":
-        document.getElementById("pizzaSize") = "Small";
+        document.getElementById("pizzaSize").innerHTML = "Small";
         return;
       case "2":
-        document.getElementById("pizzaSize") = "Medium";
+        document.getElementById("pizzaSize").innerHTML = "Medium";
         return;
       case "3":
-        document.getElementById("pizzaSize") = "Large";
+        document.getElementById("pizzaSize").innerHTML = "Large";
         return;
       default:
         console.log("bug in changeSliderLabel");
@@ -462,7 +462,7 @@ var resizePizzas = function(size) {
      // var newwidth = (document.querySelectorAll(".randomPizzaContainer").offsetWidth + dx) + 'px';
       // Get elements or Pizza Container
 
-      var elements = document.getElementByClassName("randomPizzaContainer");
+      var elements = document.getElementsByClassName("randomPizzaContainer");
       // Now loop through elements and set widths
 
       for (var i = elements.length; i--;) {
@@ -542,6 +542,8 @@ function updatePositions() {
 // runs updatePositions on scroll
 window.addEventListener('scroll', updatePositions);
 
+var movingPizzas = document.getElementById("movingPizzas1");
+
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
@@ -557,8 +559,9 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.left = (i % cols) * s + 'px';
     // elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-     // document.querySelector("#movingPizzas1").appendChild(elem);
-     document.getElementById("movingPizzas1").appendChild(elem);
+     // Found DOM element outside LOOP to minimize # of calls
+     
+     movingPizzas1.appendChild(elem);
     
 
   }
