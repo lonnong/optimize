@@ -452,7 +452,7 @@ var resizePizzas = function(size) {
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
       // Pass in first random pizza container as arg for Determine function
-      var dx = determineDx(document.getElementsByClassName("randomPizzaContainer"), size);
+      // var dx = determineDx(document.getElementsByClassName("randomPizzaContainer"), size);
       // Use layout width of first random pizza container
       // Change that makes newwidth an Array
       var elements = document.getElementsByClassName('randomPizzaContainer');
@@ -462,7 +462,7 @@ var resizePizzas = function(size) {
      // var newwidth = (document.querySelectorAll(".randomPizzaContainer").offsetWidth + dx) + 'px';
       // Get elements or Pizza Container
 
-      var elements = document.getElementsByClassName("randomPizzaContainer");
+      // var elements = document.getElementsByClassName("randomPizzaContainer");
       // Now loop through elements and set widths
 
       for (var i = elements.length; i--;) {
@@ -516,8 +516,8 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
   // Change Pull this out of loop and do it ONCE
-  var items = document.querySelectorAll('.mover');
-  // var items = document.getElementByClassName('mover');
+  // var items = document.querySelectorAll('.mover');
+  var items = document.getElementsByClassName('mover');
   // Web API call doesn't work so sticking with query call
   var top = (document.body.scrollTop / 1250);
   var phase; 
@@ -550,7 +550,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var s = 256;
   var elem;
 
-  for (var i = 0; i < 200; i++) {
+  for (var i = 0; i < 32; i++) {
     elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
